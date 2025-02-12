@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="bg-slate-50">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,33 +11,190 @@
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
+    <link rel="stylesheet" href="/src/styles/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Frontend Mentor | Mortgage repayment calculator</title>
   </head>
-  <body>
-    Mortgage Calculator Clear All Mortgage Amount Mortgage Term Interest Rate
-    Mortgage Type Repayment Interest Only Calculate Repayments
-
-    <!-- Empty results start -->
-
-    Results shown here Complete the form and click “calculate repayments” to see
-    what your monthly repayments would be.
-
-    <!-- Empty results end -->
-
-    <!-- Completed results start -->
-
-    Your results Your results are shown below based on the information you
-    provided. To adjust the results, edit the form and click “calculate
-    repayments” again. Your monthly repayments Total you'll repay over the term
-
-    <!-- Completed results end -->
-
-    <div class="attribution">
+  <body class="font-plus-jakarta bg-slate-100">
+    <main class="content-center max-lg:p-16 max-sm:p-0">
+      <div
+        class="mx-auto max-w-[1010px] bg-white max-lg:max-w-[800px] sm:rounded-3xl lg:flex"
+      >
+        <section class="flex-1 content-center p-10 max-md:px-6">
+          <div class="mb-10 max-md:mb-5 md:flex md:justify-between">
+            <h1 class="text-2xl font-semibold text-slate-900 max-md:mb-2">
+              Mortgage Calculator
+            </h1>
+            <button
+              class="cursor-pointer font-medium text-slate-400 underline hover:text-slate-950"
+            >
+              Clear All
+            </button>
+          </div>
+          <form class="flex flex-col gap-7 max-md:gap-5">
+            <label for="mortgage-amount" class="font-medium text-slate-500"
+              >Mortgage Amount
+              <div
+                class="mortgage-amount-wrap | focus-within:border-lime mt-2 flex rounded-md border-1 border-slate-500 text-lg font-bold text-slate-900 hover:border-slate-800"
+              >
+                <span class="bg-slate-100 px-4 py-[10px] text-slate-700">£</span
+                ><input
+                  type="number"
+                  id="mortgage-amount"
+                  inputmode="numeric"
+                  required
+                  class="w-full cursor-pointer px-4 py-2 outline-none"
+                />
+              </div>
+            </label>
+            <fieldset class="lg:flex lg:gap-5">
+              <label for="mortgage-term" class="font-medium text-slate-500"
+                ><span>Mortgage Term</span>
+                <div
+                  class="mortgage-term-wrap | focus-within:border-lime mt-2 flex rounded-md border-1 border-slate-500 text-lg font-bold hover:border-slate-800"
+                >
+                  <input
+                    type="number"
+                    id="mortgage-term"
+                    inputmode="numeric"
+                    required
+                    class="w-full cursor-pointer px-4 py-2 text-slate-800 outline-none"
+                  />
+                  <span class="bg-slate-100 px-4 py-[10px] text-slate-700"
+                    >years</span
+                  >
+                </div>
+              </label>
+              <label for="interest-rate" class="font-medium"
+                ><span class="text-slate-500">Interest Rate</span>
+                <div
+                  class="mortgage-rate-wrap | focus-within:border-lime mt-2 flex rounded-md border-1 border-slate-500 text-lg font-bold hover:border-slate-800"
+                >
+                  <input
+                    type="number"
+                    id="interest-rate"
+                    inputmode="numeric"
+                    required
+                    class="w-full cursor-pointer px-4 py-2 text-slate-800 outline-none"
+                  />
+                  <span class="bg-slate-100 px-4 py-[10px] text-slate-700"
+                    >%</span
+                  >
+                </div>
+              </label>
+            </fieldset>
+            <fieldset>
+              <legend class="mb-2 font-medium text-slate-500">
+                Mortgage Type
+              </legend>
+              <label
+                for="repayment"
+                class="mortgage-type | mb-3 flex cursor-pointer items-center gap-4 rounded-md border-1 border-slate-500 px-5 py-3 text-lg font-extrabold text-slate-950"
+              >
+                <input
+                  type="radio"
+                  id="repayment"
+                  name="mortgage-type"
+                  value="repayment"
+                  required
+                /><span>Repayment</span>
+              </label>
+              <label
+                class="mortgage-type | flex cursor-pointer items-center gap-4 rounded-md border-1 border-slate-500 px-5 py-3 text-lg font-extrabold text-slate-950"
+                for="interest-only"
+              >
+                <input
+                  type="radio"
+                  id="interest-only"
+                  name="mortgage-type"
+                  value="interest_only"
+                  required
+                /><span>Interest Only</span>
+              </label>
+            </fieldset>
+            <button
+              class="bg-lime hover:bg-lime/50 inline-flex max-w-fit cursor-pointer justify-center gap-4 rounded-full px-10 py-4 text-lg"
+            >
+              <img src="/assets/images/icon-calculator.svg" alt="" />
+              <span class="font-extrabold text-slate-900"
+                >Calculate Repayments</span
+              >
+            </button>
+          </form>
+        </section>
+        <section
+          class="flex-1 bg-slate-900 p-10 max-md:p-6 sm:rounded-tr-3xl sm:rounded-br-3xl sm:rounded-bl-[4.75rem]"
+        >
+          <!-- <div class="h-full content-center">
+            <div class="text-center">
+              <img
+                src="/assets/images/illustration-empty.svg"
+                alt=""
+                class="mx-auto"
+              />
+              <h2 class="text-2xl font-semibold text-white">
+                Results shown here
+              </h2>
+              <p class="text-slate-300">
+                Complete the form and click "calculate repayments" to see what
+                your monthly repayments would be.
+              </p>
+            </div>
+          </div> -->
+          <div>
+            <div class="mb-9">
+              <h2 class="mb-4 text-2xl font-semibold text-white">
+                Your results
+              </h2>
+              <p class="text-slate-300">
+                Your results are shown below based on the information you
+                provided. To adjust the results, edit the form and click "
+                calculate repayments" again.
+              </p>
+            </div>
+            <div
+              class="bg-slate-1000 border-lime rounded-md border-t-4 p-8 max-md:px-4"
+            >
+              <div class="mb-16 max-md:mb-10">
+                <p class="mb-5 font-medium text-slate-500">
+                  Your monthly payments
+                </p>
+                <output
+                  class="text-lime text-[3.5rem] leading-none font-semibold max-md:text-[2.5rem]"
+                  >£1,797.74</output
+                >
+              </div>
+              <div>
+                <p class="mb-2 font-medium text-slate-500">
+                  Total you'll repay over the term
+                </p>
+                <output class="text-2xl font-semibold text-white"
+                  >£539,322.94</output
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="attribution p-16 text-center">
       Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="https://github.com/47roms16">Rommel San Jose</a>.
-    </div>
-    22
+      <a
+        href="https://www.frontendmentor.io?ref=challenge"
+        class="text-red hover:underline"
+        >Frontend Mentor</a
+      >.
+      <br />
+      Coded by
+      <a href="https://github.com/47roms16" class="text-red hover:underline"
+        >Rommel San Jose</a
+      >.
+    </footer>
   </body>
 </html>

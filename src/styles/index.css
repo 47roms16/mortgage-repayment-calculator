@@ -1,1 +1,99 @@
 @import "tailwindcss";
+
+@theme {
+  /* * Font */
+
+  --font-plus-jakarta: "Plus Jakarta Sans", sans-serif;
+
+  /* * Colors */
+
+  /* Primary */
+
+  --color-lime: hsl(61, 70%, 52%);
+  --color-red: hsl(4, 69%, 50%);
+
+  /* Neutral */
+
+  --color-slate-100: hsl(202, 86%, 94%);
+  --color-slate-300: hsl(203, 41%, 72%);
+  --color-slate-500: hsl(200, 26%, 54%);
+  --color-slate-700: hsl(200, 24%, 40%);
+  --color-slate-900: hsl(202, 55%, 16%);
+  --color-slate-1000: hsl(200, 54%, 10%);
+}
+
+/** ||  GENERAL || */
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+main {
+  min-height: inherit;
+}
+
+/** || Input Affixes - "£", "years", "%" || */
+
+.mortgage-amount-wrap:focus-within span,
+.mortgage-term-wrap:focus-within span,
+.mortgage-rate-wrap:focus-within span {
+  background-color: var(
+    --color-lime
+  ); /* change span background color when input is focused */
+}
+
+.mortgage-amount-wrap span {
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+
+.mortgage-term-wrap span,
+.mortgage-rate-wrap span {
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+/** || Input Custom Styles || */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+/* Radio input */
+
+input[type="radio"] {
+  appearance: none;
+  position: relative;
+  padding: 2px;
+  border: 2px solid var(--color-slate-500);
+  border-radius: 50%;
+}
+
+input[type="radio"]::before {
+  content: "";
+  position: relative;
+  inset: 0;
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+  border-color: var(--color-lime);
+}
+
+input[type="radio"]:checked::before {
+  background: var(--color-lime);
+}
+
+.mortgage-type:has(input[type="radio"]:checked) {
+  border-color: var(--color-lime);
+}
