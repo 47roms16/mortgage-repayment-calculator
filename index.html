@@ -37,7 +37,7 @@
               Clear All
             </button>
           </div>
-          <form class="flex flex-col gap-7 max-md:gap-5">
+          <form id="mortgage-form" class="flex flex-col gap-7 max-md:gap-5">
             <label for="mortgage-amount" class="font-medium text-slate-500"
               >Mortgage Amount
               <div
@@ -96,6 +96,7 @@
                   id="repayment"
                   name="mortgage-type"
                   value="repayment"
+                  checked
                   required
                 /><span>Repayment</span>
               </label>
@@ -136,34 +137,32 @@
           </div>
           <!-- <div>
             <div class="mb-9">
-              <h2 class="mb-4 text-2xl font-semibold text-white">
-                Your results
-              </h2>
+              <h2 class="mb-4 text-2xl font-semibold text-white">Your results</h2>
               <p class="text-slate-300">
-                Your results are shown below based on the information you
-                provided. To adjust the results, edit the form and click "
-                calculate repayments" again.
+                Your results are shown below based on the information you provided. To
+                adjust the results, edit the form and click "calculate repayments" again.
               </p>
             </div>
-            <div
-              class="bg-slate-1000 border-lime rounded-md border-t-4 p-8 max-md:px-4"
-            >
+            <div class="bg-slate-1000 border-lime rounded-md border-t-4 p-8 max-md:px-4">
               <div class="mb-16 max-md:mb-10">
-                <p class="mb-5 font-medium text-slate-500">
-                  Your monthly payments
-                </p>
+                <h3 class="mb-5 font-medium text-slate-500">Your monthly payments</h3>
                 <output
+                  form="mortgage-form"
+                  for="mortgage-amount mortgage-term interest-rate mortgage-type"
                   class="text-lime text-[3.5rem] leading-none font-semibold max-md:text-[2.5rem]"
-                  >£1,797.74</output
+                  >£0.00</output
                 >
               </div>
               <div>
-                <p class="mb-2 font-medium text-slate-500">
+                <h3 class="mb-2 font-medium text-slate-500">
                   Total you'll repay over the term
-                </p>
-                <output class="text-2xl font-semibold text-white"
-                  >£539,322.94</output
-                >
+                </h3>
+                <output
+                  form="mortgage-form"
+                  for="mortgage-amount mortgage-term interest-rate mortgage-type"
+                  class="text-2xl font-semibold text-white"
+                  >£0.00
+                </output>
               </div>
             </div>
           </div> -->
