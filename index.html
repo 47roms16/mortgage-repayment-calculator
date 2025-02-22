@@ -38,52 +38,61 @@
             </button>
           </div>
           <form id="mortgage-form" class="flex flex-col gap-7 max-md:gap-5">
-            <label for="mortgage-amount" class="font-medium text-slate-500"
-              >Mortgage Amount
-              <div
-                class="mortgage-amount-wrap | focus-within:border-lime mt-2 flex rounded-md border-1 border-slate-500 text-lg font-bold text-slate-900 hover:border-slate-800"
-              >
-                <span class="bg-slate-100 px-4 py-[10px] text-slate-700">£</span
-                ><input
-             type="text"     
-                  id="mortgage-amount"
-                  inputmode="numeric"
-                  required
-                  class="w-full cursor-pointer px-4 py-2 outline-none"
-                />
-              </div>
-            </label>
+            <div>
+              <label for="mortgage-amount" class="font-medium text-slate-500"
+                >Mortgage Amount
+                <div
+                  class="mortgage-amount-wrap | focus-within:border-lime mt-2 flex rounded-md border-1 border-slate-500 text-lg font-bold text-slate-900 hover:border-slate-800"
+                >
+                  <span class="bg-slate-100 px-4 py-[10px] text-slate-700">£</span
+                  ><input
+                    type="text"
+                    id="mortgage-amount"
+                    inputmode="numeric"
+                    required
+                    class="w-full cursor-pointer px-4 py-2 outline-none"
+                  />
+                </div>
+              </label>
+              <p class="text-red mt-2 hidden font-medium">This field is required</p>
+            </div>
             <fieldset class="lg:flex lg:gap-5">
-              <label for="mortgage-term" class="font-medium text-slate-500"
-                ><span>Mortgage Term</span>
-                <div
-                  class="mortgage-term-wrap | focus-within:border-lime mt-2 flex rounded-md border-1 border-slate-500 text-lg font-bold hover:border-slate-800"
-                >
-                  <input
-                    type="text"
-                    id="mortgage-term"
-                    inputmode="numeric"
-                    required
-                    class="w-full cursor-pointer px-4 py-2 text-slate-800 outline-none"
-                  />
-                  <span class="bg-slate-100 px-4 py-[10px] text-slate-700">years</span>
-                </div>
-              </label>
-              <label for="interest-rate" class="font-medium"
-                ><span class="text-slate-500">Interest Rate</span>
-                <div
-                  class="mortgage-rate-wrap | focus-within:border-lime mt-2 flex rounded-md border-1 border-slate-500 text-lg font-bold hover:border-slate-800"
-                >
-                  <input
-                    type="text"
-                    id="interest-rate"
-                    inputmode="numeric"
-                    required
-                    class="w-full cursor-pointer px-4 py-2 text-slate-800 outline-none"
-                  />
-                  <span class="bg-slate-100 px-4 py-[10px] text-slate-700">%</span>
-                </div>
-              </label>
+              <div>
+                <label for="mortgage-term" class="font-medium text-slate-500"
+                  ><span>Mortgage Term</span>
+                  <div
+                    class="mortgage-term-wrap | focus-within:border-lime mt-2 flex rounded-md border-1 border-slate-500 text-lg font-bold hover:border-slate-800"
+                  >
+                    <input
+                      type="text"
+                      id="mortgage-term"
+                      inputmode="numeric"
+                      required
+                      class="w-full cursor-pointer px-4 py-2 text-slate-800 outline-none"
+                    />
+                    <span class="bg-slate-100 px-4 py-[10px] text-slate-700">years</span>
+                  </div>
+                </label>
+                <p class="text-red mt-2 hidden font-medium">This field is required</p>
+              </div>
+              <div>
+                <label for="interest-rate" class="font-medium"
+                  ><span class="text-slate-500">Interest Rate</span>
+                  <div
+                    class="mortgage-rate-wrap | focus-within:border-lime mt-2 flex rounded-md border-1 border-slate-500 text-lg font-bold hover:border-slate-800"
+                  >
+                    <input
+                      type="text"
+                      id="interest-rate"
+                      inputmode="numeric"
+                      required
+                      class="w-full cursor-pointer px-4 py-2 text-slate-800 outline-none"
+                    />
+                    <span class="bg-slate-100 px-4 py-[10px] text-slate-700">%</span>
+                  </div>
+                </label>
+                <p class="text-red mt-2 hidden font-medium">This field is required</p>
+              </div>
             </fieldset>
             <fieldset>
               <legend class="mb-2 font-medium text-slate-500">Mortgage Type</legend>
@@ -135,7 +144,7 @@
               </p>
             </div>
           </div>
-          <!-- <div>
+          <div class="js-result-wrap | hidden">
             <div class="mb-9">
               <h2 class="mb-4 text-2xl font-semibold text-white">Your results</h2>
               <p class="text-slate-300">
@@ -147,6 +156,7 @@
               <div class="mb-16 max-md:mb-10">
                 <h3 class="mb-5 font-medium text-slate-500">Your monthly payments</h3>
                 <output
+                  id="monthly-repayment-output"
                   form="mortgage-form"
                   for="mortgage-amount mortgage-term interest-rate mortgage-type"
                   class="text-lime text-[3.5rem] leading-none font-semibold max-md:text-[2.5rem]"
@@ -158,6 +168,7 @@
                   Total you'll repay over the term
                 </h3>
                 <output
+                  id="total-repayment-output"
                   form="mortgage-form"
                   for="mortgage-amount mortgage-term interest-rate mortgage-type"
                   class="text-2xl font-semibold text-white"
@@ -165,7 +176,7 @@
                 </output>
               </div>
             </div>
-          </div> -->
+          </div>
         </section>
       </div>
     </main>

@@ -54,6 +54,21 @@ main {
   border-bottom-right-radius: inherit;
 }
 
+/* Input  error indicators  */
+
+.mortgage-amount-wrap.error:has(input[type="text"]) span,
+.mortgage-term-wrap.error:has(input[type="text"]) span,
+.mortgage-rate-wrap.error:has(input[type="text"]) span {
+  background-color: var(--color-red);
+  color: white;
+}
+
+.mortgage-amount-wrap.error:has(input[type="text"]),
+.mortgage-term-wrap.error:has(input[type="text"]),
+.mortgage-rate-wrap.error:has(input[type="text"]) {
+  border-color: var(--color-red);
+}
+
 /** || Input Custom Styles || */
 
 /* Radio input */
