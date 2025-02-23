@@ -4,11 +4,23 @@ export default function displayRepaymentResults(monthly: number, total: number):
 
   emptyResult.classList.add("hidden");
   resultWrap.classList.remove("hidden");
+
   const monthlyElem = document.getElementById(
     "monthly-repayment-output",
   ) as HTMLSpanElement;
   const totalElem = document.getElementById("total-repayment-output") as HTMLSpanElement;
 
-  monthlyElem.textContent = `£${monthly}`;
-  totalElem.textContent = `£${total}`;
+  const monthlyFormatted = new Intl.NumberFormat("en-GB", {
+    style: "currency",
+    currency: "GBP",
+    currencyDisplay: "symbol",
+  }).format(monthly);
+  const totalFormatted = new Intl.NumberFormat("en-GB", {
+    style: "currency",
+    currency: "GBP",
+    currencyDisplay: "symbol",
+  }).format(total);
+
+  monthlyElem.textContent = monthlyFormatted;
+  totalElem.textContent = totalFormatted;
 }
