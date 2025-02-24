@@ -1,5 +1,6 @@
+import calculateInterestRepayment from "../helpers/calculate-interest";
 import calculateRepayment from "../helpers/calculate-repayment";
-import displayRepaymentResults from "../helpers/display-result";
+import displayRepaymentResults from "../ui/components/display-result";
 
 export default function initFormListeners(
   formElem: HTMLFormElement,
@@ -15,15 +16,20 @@ export default function initFormListeners(
       'input[name="mortgage-type"]:checked',
     ) as HTMLInputElement;
 
-    if (mortgageType.value === "repayment") {
-      const amount = parseInt(loanAmount.value);
-      const term = parseInt(loanTerm.value);
-      const rate = parseFloat(interestRate.value);
+    const amount = parseInt(loanAmount.value);
+    const term = parseInt(loanTerm.value);
+    const rate = parseFloat(interestRate.value);
 
+    if (mortgageType.value === "repayment") {
       const [monthlyRepayment, totalRepayment] = calculateRepayment(amount, term, rate);
       displayRepaymentResults(monthlyRepayment, totalRepayment);
     } else if (mortgageType.value === "interest_only") {
-      console.log("Calculate interest only", mortgageType.value);
+      const [monthlyRepayment, totalRepayment] = calculateInterestRepayment(
+        amount,
+        term,
+        rate,
+      );
+      displayRepaymentResults(monthlyRepayment, totalRepayment);
     }
   });
 }
