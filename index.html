@@ -39,11 +39,11 @@
             </button>
           </div>
           <form id="mortgage-form" class="flex flex-col gap-7 max-md:gap-5">
-            <div>
+            <div class="input-container">
               <label for="mortgage-amount" class="font-medium text-slate-500"
                 >Mortgage Amount
                 <div
-                  class="mortgage-amount-wrap | focus-within:border-lime mt-2 flex rounded-md border-1 border-slate-500 text-lg font-bold text-slate-900 hover:border-slate-800"
+                  class="mortgage-amount-wrap js-input-wrap | focus-within:border-lime mt-2 flex rounded-md border-1 border-slate-500 text-lg font-bold text-slate-900 hover:border-slate-800"
                 >
                   <span class="bg-slate-100 px-4 py-[10px] text-slate-700">£</span
                   ><input
@@ -55,14 +55,16 @@
                   />
                 </div>
               </label>
-              <p class="text-red mt-2 hidden font-medium">This field is required</p>
+              <p class="js-empty-error | text-red mt-2 hidden font-medium">
+                This field is required
+              </p>
             </div>
             <fieldset class="lg:flex lg:gap-5">
-              <div>
+              <div class="input-container">
                 <label for="mortgage-term" class="font-medium text-slate-500"
                   ><span>Mortgage Term</span>
                   <div
-                    class="mortgage-term-wrap | focus-within:border-lime mt-2 flex rounded-md border-1 border-slate-500 text-lg font-bold hover:border-slate-800"
+                    class="mortgage-term-wrap js-input-wrap | focus-within:border-lime mt-2 flex rounded-md border-1 border-slate-500 text-lg font-bold hover:border-slate-800"
                   >
                     <input
                       type="text"
@@ -74,13 +76,15 @@
                     <span class="bg-slate-100 px-4 py-[10px] text-slate-700">years</span>
                   </div>
                 </label>
-                <p class="text-red mt-2 hidden font-medium">This field is required</p>
+                <p class="js-empty-error | text-red mt-2 hidden font-medium">
+                  This field is required
+                </p>
               </div>
-              <div>
+              <div class="input-container">
                 <label for="interest-rate" class="font-medium"
                   ><span class="text-slate-500">Interest Rate</span>
                   <div
-                    class="mortgage-rate-wrap | focus-within:border-lime mt-2 flex rounded-md border-1 border-slate-500 text-lg font-bold hover:border-slate-800"
+                    class="mortgage-rate-wrap js-input-wrap | focus-within:border-lime mt-2 flex rounded-md border-1 border-slate-500 text-lg font-bold hover:border-slate-800"
                   >
                     <input
                       type="text"
@@ -92,7 +96,9 @@
                     <span class="bg-slate-100 px-4 py-[10px] text-slate-700">%</span>
                   </div>
                 </label>
-                <p class="text-red mt-2 hidden font-medium">This field is required</p>
+                <p class="js-empty-error | text-red mt-2 hidden font-medium">
+                  This field is required
+                </p>
               </div>
             </fieldset>
             <fieldset>
