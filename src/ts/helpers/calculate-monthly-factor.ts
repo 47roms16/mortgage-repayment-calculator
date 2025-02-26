@@ -8,6 +8,11 @@ export default function getMonthlyPaymentFactor(
   // * r = monthlyInterestRate
   // * n = totalMonthsToRepay
 
+  // If interest rate is 0, the loan is simply divided evenly over the total months
+  if (interestRate === 0) {
+    return 1 / totalMonthsToRepay; // no interest, so pay equal parts each month
+  }
+
   const monthlyInterestRate = getMonthlyInterestRate(interestRate);
 
   const interestOverTime = Math.pow(1 + monthlyInterestRate, totalMonthsToRepay); // (1 + r) ** n
