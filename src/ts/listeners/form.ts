@@ -16,9 +16,9 @@ export default function initFormListeners(
       'input[name="mortgage-type"]:checked',
     ) as HTMLInputElement;
 
-    const amount = parseInt(loanAmount.value);
-    const term = parseInt(loanTerm.value);
-    const rate = parseFloat(interestRate.value);
+    const amount = Number(loanAmount.value);
+    const term = Number(loanTerm.value);
+    const rate = Number(interestRate.value);
 
     const inputs = [loanAmount, loanTerm, interestRate];
 
