@@ -8,6 +8,8 @@ export default function checkEmptyInputs(inputs: HTMLInputElement[]): boolean {
       ".js-error-msg",
     ) as HTMLParagraphElement;
 
+    errorMsgElem.textContent = "This field is required";
+
     const isEmpty = input.value.trim() === "";
 
     errorMsgElem.classList.toggle("hidden", !isEmpty);
