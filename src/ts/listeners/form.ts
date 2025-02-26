@@ -20,6 +20,14 @@ export default function initFormListeners(
     const term = parseInt(loanTerm.value);
     const rate = parseFloat(interestRate.value);
 
+    const inputs = [loanAmount, loanTerm, interestRate];
+
+    const hasEmptyInputs = checkEmptyInputs(inputs);
+    const hasNaN = checkIfNaN(inputs);
+
+    if (hasEmptyInputs) return;
+    if (hasNaN) return;
+
     if (mortgageType.value === "repayment") {
       const [monthlyRepayment, totalRepayment] = calculateRepayment(amount, term, rate);
       displayRepaymentResults(monthlyRepayment, totalRepayment);
