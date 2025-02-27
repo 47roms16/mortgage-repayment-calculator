@@ -1,5 +1,7 @@
 import calculateInterestRepayment from "../helpers/calculate-interest";
 import calculateRepayment from "../helpers/calculate-repayment";
+import handleInputValidation from "../helpers/errors/handle-validation";
+
 import displayRepaymentResults from "../ui/components/display-result";
 
 export default function initFormListeners(
@@ -22,11 +24,9 @@ export default function initFormListeners(
 
     const inputs = [loanAmount, loanTerm, interestRate];
 
-    const hasEmptyInputs = checkEmptyInputs(inputs);
-    const hasNaN = checkIfNaN(inputs);
+    const hasError = handleInputValidation(inputs);
 
-    if (hasEmptyInputs) return;
-    if (hasNaN) return;
+    if (hasError) return;
 
     if (mortgageType.value === "repayment") {
       const [monthlyRepayment, totalRepayment] = calculateRepayment(amount, term, rate);

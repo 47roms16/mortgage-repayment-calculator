@@ -1,20 +1,14 @@
-export default function checkEmptyInputs(inputs: HTMLInputElement[]): boolean {
-  const hasEmpty = inputs.some((input) => input.value === "");
+export default function handleEmptyError(
+  value: string,
+  inputWrap: HTMLDivElement,
+  errorMsgElem: HTMLParagraphElement,
+): boolean {
+  let isEmpty = value === "";
 
-  for (const input of inputs) {
-    const labelParent = input.closest(".label-wrap") as HTMLDivElement;
-    const inputWrap = labelParent.querySelector(".js-input-wrap") as HTMLDivElement;
-    const errorMsgElem = labelParent.querySelector(
-      ".js-error-msg",
-    ) as HTMLParagraphElement;
+  errorMsgElem.textContent = "This field is required";
 
-    errorMsgElem.textContent = "This field is required";
+  errorMsgElem.classList.toggle("hidden", !isEmpty);
+  inputWrap.classList.toggle("error", isEmpty);
 
-    const isEmpty = input.value.trim() === "";
-
-    errorMsgElem.classList.toggle("hidden", !isEmpty);
-    inputWrap.classList.toggle("error", isEmpty);
-  }
-
-  return hasEmpty;
+  return isEmpty;
 }
